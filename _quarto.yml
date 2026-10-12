@@ -18,7 +18,6 @@ book:
     - part: "Практика"
       chapters:
         - notebooks/00-template.qmd
-    - references.qmd
 
 bibliography: references.bib
 
