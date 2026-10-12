@@ -1,0 +1,9 @@
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+jupyter>=1.0
+nbformat>=5.9
+nbclient>=0.9
+pytest>=7.4
+ruff>=0.4
+pre-commit>=3.5

@@ -1,0 +1,23 @@
+# данные в git не хранятся
+data/*
+!data/README.md
+!data/.gitkeep
+
+# Quarto
+/_book/
+/.quarto/
+*_files/
+/site_libs/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# прочее
+.DS_Store

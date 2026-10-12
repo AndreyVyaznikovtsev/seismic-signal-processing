@@ -1,0 +1,13 @@
+Тексты, рисунки и учебные материалы этого репозитория
+(каталоги chapters/, notebooks/, docs/, файл index.qmd)
+распространяются по лицензии
+
+    Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Полный текст: https://creativecommons.org/licenses/by/4.0/legalcode.ru
+
+Коротко: material можно свободно копировать, изменять и использовать,
+в том числе коммерчески, при условии указания авторства.
+
+Исходный код (каталоги src/, tests/ и файлы сборки) распространяется
+по лицензии MIT — см. файл LICENSE.

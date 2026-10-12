@@ -1,0 +1,35 @@
+name: Глава учебника
+description: Теоретический раздел с выводом и примером
+title: "theory: "
+labels: ["theory", "good first issue"]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Тема
+      placeholder: Циклическая свёртка и заворачивание
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Что должно быть в разделе
+      value: |
+        - постановка:
+        - вывод:
+        - пример:
+        - задача для читателя:
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Источники
+      placeholder: Книги и статьи, на которые опираться
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Сложность
+      options: ["1 — вводная", "2 — средняя", "3 — требует вывода"]
+    validations:
+      required: true

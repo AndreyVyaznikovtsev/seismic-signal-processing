@@ -1,0 +1,43 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Обработка сейсмических сигналов"
+  subtitle: "Открытый учебник"
+  search: true
+  repo-url: https://github.com/AndreyVyaznikovtsev/seismic-signal-processing
+  repo-actions: [edit, issue]
+  sidebar:
+    style: docked
+  chapters:
+    - index.qmd
+    - part: "Сигналы и последовательности"
+      chapters:
+        - chapters/01-sequences/index.qmd
+    - part: "Практика"
+      chapters:
+        - notebooks/00-template.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-fold: false
+    code-copy: true
+    fig-cap-location: bottom
+    number-sections: true
+  # PDF собирается локально: quarto render --to pdf
+  # В CI он выключен, чтобы не тянуть LaTeX.
+
+execute:
+  freeze: auto
+  warning: false
+
+jupyter: python3
+
+lang: ru

@@ -1,0 +1,31 @@
+name: Практический разбор
+description: Исполняемый пример с рисунками
+title: "example: "
+labels: ["example"]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Что демонстрируем
+      placeholder: Утечка спектра и выбор окна
+    validations:
+      required: true
+  - type: textarea
+    id: plan
+    attributes:
+      label: План разбора
+      value: |
+        - данные:
+        - что считаем:
+        - какие рисунки:
+        - вывод:
+    validations:
+      required: true
+  - type: checkboxes
+    id: needs
+    attributes:
+      label: Что потребуется
+      options:
+        - label: новая функция в seisdsp
+        - label: реальные данные
+        - label: только синтетика

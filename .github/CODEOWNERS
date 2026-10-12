@@ -1,0 +1,11 @@
+# Владельцы файлов. GitHub автоматически зовёт их в ревью.
+#
+# По мере того как студенты берут темы, сюда добавляются строки вида
+#   /chapters/02-convolution/   @github-username
+# Так ревью распределяется, а не сваливается на одного человека.
+
+*                       @AndreyVyaznikovtsev
+
+/src/                   @AndreyVyaznikovtsev
+/.github/               @AndreyVyaznikovtsev
+/CONTRIBUTING.md        @AndreyVyaznikovtsev
