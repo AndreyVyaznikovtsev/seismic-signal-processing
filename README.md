@@ -52,3 +52,7 @@ Quarto ставится отдельно: <https://quarto.org/docs/get-started/>
 - код (`src/`, `tests/`) — MIT, см. [LICENSE](LICENSE)
 - тексты и рисунки (`chapters/`, `notebooks/`, `docs/`) — CC BY 4.0,
   см. [LICENSE-CONTENT](LICENSE-CONTENT)
+
+## Участники
+
+Список тех, кто работал над проектом, — в [CONTRIBUTORS.md](CONTRIBUTORS.md).
