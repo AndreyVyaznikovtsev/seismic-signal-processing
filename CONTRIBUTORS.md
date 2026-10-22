@@ -15,3 +15,11 @@
 - Каличева Анастасия - [@kalichkva](https://github.com/kalichkva)
 - Иванова Мария Александровна - [@marivachka](https://github.com/marivachka)
 - Боровик Дарья - [@daraborovik](https://github.com/daraborovik)
+
+Команда 3:
+- Шипилов Алексей - [@alex72-zavoy](https://github.com/alex72-zavoy)
+- Шулаев Петр - [@PeterShulaev](https://github.com/PeterShulaev)
+- Белкина Диана - [@dianaakkerman47-ctrl](https://github.com/dianaakkerman47-ctrl)
+- Хомячков Дмитрий - [@dimayn35](https://github.com/dimayn35)
+- Григорьева Галина - [@gggrigoreva103](https://github.com/gggrigoreva103)
+- Хилько Егор - [@hilgor2000-boop](https://github.com/hilgor2000-boop)

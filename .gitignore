@@ -21,3 +21,5 @@ venv/
 
 # прочее
 .DS_Store
+
+**/*.quarto_ipynb
