@@ -12,6 +12,9 @@ book:
     style: docked
   chapters:
     - index.qmd
+    - part: "Математический язык обработки сигналов"
+      chapters:
+        - chapters/01-math-language/sequences-vectors.qmd
     - part: "Сигналы и последовательности"
       chapters:
         - chapters/01-sequences/index.qmd
