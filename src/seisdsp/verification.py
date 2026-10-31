@@ -13,6 +13,7 @@ from __future__ import annotations
 import numpy as np
 from numpy.typing import ArrayLike
 
+from seisdsp.operators import difference_matrix
 from seisdsp.sequences import circular_convolve, delta, linear_convolve
 
 TOL = 1e-10
@@ -74,12 +75,25 @@ def check_circular_equals_linear(n_x: int = 8, n_h: int = 5) -> dict:
     return _result("циклическая против линейной", diff, 0.0, tol=1e-10)
 
 
+def check_difference_inverse(length: int = 16) -> dict:
+    """Кумулятивная сумма обращает разностный оператор с нулевым продолжением."""
+    rng = np.random.default_rng(3)
+    x = rng.standard_normal(length)
+    y = difference_matrix(length, "zero") @ x
+    return _result(
+        "кумулятивная сумма обращает разность",
+        np.max(np.abs(np.cumsum(y) - x)),
+        0.0,
+    )
+
+
 ALL_CHECKS = (
     lambda: check_convolution_support(7, 4),
     lambda: check_delta_is_identity(),
     lambda: check_parseval(np.random.default_rng(2).standard_normal(64)),
     lambda: check_dft_of_delta(),
     lambda: check_circular_equals_linear(),
+    lambda: check_difference_inverse(),
 )
 
 
