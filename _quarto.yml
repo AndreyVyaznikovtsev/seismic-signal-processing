@@ -15,6 +15,9 @@ book:
     - part: "Сигналы и последовательности"
       chapters:
         - chapters/01-sequences/index.qmd
+    - part: "Математический язык"
+      chapters:
+        - chapters/01-math-language/operators.qmd
     - part: "Практика"
       chapters:
         - notebooks/00-template.qmd
