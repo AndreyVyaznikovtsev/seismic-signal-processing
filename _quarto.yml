@@ -15,6 +15,9 @@ book:
     - part: "Сигналы и последовательности"
       chapters:
         - chapters/01-sequences/index.qmd
+    - part: "Специальные функции"
+      chapters:
+        - chapters/02-special-functions/dirac-delta.qmd
     - part: "Практика"
       chapters:
         - notebooks/00-template.qmd
@@ -23,6 +26,7 @@ bibliography: references.bib
 
 format:
   html:
+    fig-format: svg
     theme: cosmo
     toc: true
     toc-depth: 3
