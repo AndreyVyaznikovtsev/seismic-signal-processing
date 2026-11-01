@@ -6,7 +6,6 @@ from seisdsp.sequences import (
     linear_convolve,
     unit_step,
 )
-from seisdsp.special import piecewise_from_jumps
 
 __version__ = "0.1.0"
 
@@ -14,6 +13,5 @@ __all__ = [
     "circular_convolve",
     "delta",
     "linear_convolve",
-    "piecewise_from_jumps",
     "unit_step",
 ]
