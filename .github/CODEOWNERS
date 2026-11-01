@@ -9,4 +9,6 @@
 /src/                   @AndreyVyaznikovtsev
 /.github/               @AndreyVyaznikovtsev
 /CONTRIBUTING.md        @AndreyVyaznikovtsev
+
 /chapters/02-special-functions/heaviside.qmd @hilgor2000-boop
+/chapters/01-math-language/sequences-vectors.qmd @dianaakkerman47-ctrl
