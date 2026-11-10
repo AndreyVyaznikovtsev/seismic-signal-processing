@@ -14,7 +14,7 @@ import numpy as np
 from numpy.typing import ArrayLike
 
 from seisdsp.sequences import circular_convolve, delta, linear_convolve
-
+from seisdsp.special import rect_delta
 TOL = 1e-10
 
 
@@ -73,13 +73,28 @@ def check_circular_equals_linear(n_x: int = 8, n_h: int = 5) -> dict:
     diff = np.max(np.abs(circular_convolve(xp, hp) - linear_convolve(x, h)))
     return _result("циклическая против линейной", diff, 0.0, tol=1e-10)
 
+def check_delta_sifting(t0: float = 0.7, eps: float = 1e-2, n: int = 1000) -> dict:
+    """Фильтрующее свойство: интеграл f(t)*delta_eps(t-t0) -> f(t0).
 
+    Для f = cos ошибка приближения равна ``|cos(t0)| * eps^2 / 24``.
+    Сетка из средних точек (каждая строго внутри носителя) превращает
+    интеграл в точную прямоугольную сумму — остаётся только
+    «настоящая» ошибка приближения.
+    """
+    h = eps / n
+    t = t0 - eps / 2 + h / 2 + np.arange(n) * h
+    measured = abs(np.sum(np.cos(t)) * h / eps - np.cos(t0))
+    expected = abs(np.cos(t0)) * eps**2 / 24
+    return _result(
+        "фильтрующее свойство дельты", measured, expected, tol=10 * eps**4
+)
 ALL_CHECKS = (
     lambda: check_convolution_support(7, 4),
     lambda: check_delta_is_identity(),
     lambda: check_parseval(np.random.default_rng(2).standard_normal(64)),
     lambda: check_dft_of_delta(),
     lambda: check_circular_equals_linear(),
+    lambda: check_delta_sifting(),
 )
 
 
