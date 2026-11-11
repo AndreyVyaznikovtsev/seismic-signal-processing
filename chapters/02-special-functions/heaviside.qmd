@@ -254,7 +254,7 @@ print(float(np.max(np.abs(f_direct - f_jumps))))
 
    $$
    f_{\text{пила}}(t) = \sum_{k=0}^{2} (t - k)\,\bigl(u(t - k) - u(t - k - 1)\bigr)
-   = t\,\bigl(u(t) - u(t - 3)\bigr) - u(t - 1) - u(t - 2) - u(t - 3).
+   = t\,\bigl(u(t) - u(t - 3)\bigr) - u(t - 1) - u(t - 2) + 2\,u(t - 3).
    $$
 
    Коэффициенты при чистых ступеньках $u(t - 1)$, $u(t - 2)$ и $u(t - 3)$
