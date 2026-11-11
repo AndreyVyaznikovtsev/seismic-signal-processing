@@ -18,11 +18,9 @@ book:
     - part: "Сигналы и последовательности"
       chapters:
         - chapters/01-sequences/index.qmd
-    - part: Специальные функции
-      chapters:
-        - chapters/02-special-functions/heaviside.qmd
     - part: "Специальные функции"
       chapters:
+        - chapters/02-special-functions/heaviside.qmd
         - chapters/02-special-functions/dirac-delta.qmd
     - part: "Практика"
       chapters:
