@@ -5,6 +5,7 @@ data/*
 
 # Quarto
 /_book/
+/_freeze/
 /.quarto/
 *_files/
 /site_libs/
