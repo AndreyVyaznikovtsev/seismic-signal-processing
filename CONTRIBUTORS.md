@@ -23,3 +23,6 @@
 - Хомячков Дмитрий - [@dimayn35](https://github.com/dimayn35)
 - Григорьева Галина - [@gggrigoreva103](https://github.com/gggrigoreva103)
 - Хилько Егор - [@hilgor2000-boop](https://github.com/hilgor2000-boop)
+
+Команда 4:
+- Канаев Илья — [@ilkanaev-glitch](https://github.com/ilkanaev-glitch)
