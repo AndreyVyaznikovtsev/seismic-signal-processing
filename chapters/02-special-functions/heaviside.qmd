@@ -173,11 +173,9 @@ fig.tight_layout()
 
 ## Проверка на примере
 
-Сравним вычисление кусочно-постоянной функции через прямое задание условий
-в `np.select` и через библиотечную функцию `piecewise_from_jumps`.
-
-Чтобы узлы разрыва не совпадали с узлами дискретизации, выберем сетку из 401 точки
-с шагом $7/400 = 0{,}0175$:
+Построим кусочно-постоянную функцию двумя независимыми способами на сетке,
+не попадающей в узлы разрыва: прямой разметкой интервалов через `np.select`
+и вызовом библиотечной функции `piecewise_from_jumps`.
 
 ```{python}
 import numpy as np
@@ -203,6 +201,21 @@ print(float(np.max(np.abs(f_direct - f_jumps))))
 
 Полученная разность равна машинному нулю, что подтверждает эквивалентность
 обоих способов вне точек разрыва.
+Полученный сигнал показан на @fig-heaviside-example.
+
+```{python}
+#| label: fig-heaviside-example
+#| fig-cap: "Кусочно-постоянный сигнал из примера"
+#| echo: false
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(6, 2.6))
+ax.stairs(values, [t_grid[0], *breakpoints, t_grid[-1]], color="k", lw=1.8)
+ax.set_xlabel("время, с")
+ax.set_ylabel("амплитуда, отн. ед.")
+ax.grid(alpha=0.3)
+fig.tight_layout()
+```
 
 ## Кусочно-линейные функции
 
