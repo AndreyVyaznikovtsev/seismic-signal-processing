@@ -14,6 +14,7 @@ import numpy as np
 from numpy.typing import ArrayLike
 
 from seisdsp.sequences import circular_convolve, delta, linear_convolve
+from seisdsp.special import piecewise_from_jumps
 
 TOL = 1e-10
 
@@ -74,12 +75,31 @@ def check_circular_equals_linear(n_x: int = 8, n_h: int = 5) -> dict:
     return _result("циклическая против линейной", diff, 0.0, tol=1e-10)
 
 
+def check_piecewise_from_jumps() -> dict:
+    """Кусочно-постоянная функция через скачки совпадает с прямой разметкой."""
+    t = np.linspace(-2.0, 5.0, 350)
+    bp = [-1.0, 0.5, 2.0, 3.5]
+    vals = [1.0, 3.0, -1.0, 2.5, 0.0]
+    y_jumps = piecewise_from_jumps(t, bp, vals)
+    conds = [
+        t < bp[0],
+        (t >= bp[0]) & (t < bp[1]),
+        (t >= bp[1]) & (t < bp[2]),
+        (t >= bp[2]) & (t < bp[3]),
+        t >= bp[3],
+    ]
+    y_direct = np.select(conds, vals)
+    diff = float(np.max(np.abs(y_jumps - y_direct)))
+    return _result("кусочно-постоянная через ступеньки", diff, 0.0, tol=1e-12)
+
+
 ALL_CHECKS = (
     lambda: check_convolution_support(7, 4),
     lambda: check_delta_is_identity(),
     lambda: check_parseval(np.random.default_rng(2).standard_normal(64)),
     lambda: check_dft_of_delta(),
     lambda: check_circular_equals_linear(),
+    lambda: check_piecewise_from_jumps(),
 )
 
 
