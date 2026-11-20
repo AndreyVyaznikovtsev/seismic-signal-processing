@@ -14,7 +14,8 @@ import numpy as np
 from numpy.typing import ArrayLike
 
 from seisdsp.sequences import circular_convolve, delta, linear_convolve
-from seisdsp.special import rect_delta
+from seisdsp.special import piecewise_from_jumps, rect_delta
+
 TOL = 1e-10
 
 
@@ -73,6 +74,25 @@ def check_circular_equals_linear(n_x: int = 8, n_h: int = 5) -> dict:
     diff = np.max(np.abs(circular_convolve(xp, hp) - linear_convolve(x, h)))
     return _result("циклическая против линейной", diff, 0.0, tol=1e-10)
 
+
+def check_piecewise_from_jumps() -> dict:
+    """Кусочно-постоянная функция через скачки совпадает с прямой разметкой."""
+    t = np.linspace(-2.0, 5.0, 350)
+    bp = [-1.0, 0.5, 2.0, 3.5]
+    vals = [1.0, 3.0, -1.0, 2.5, 0.0]
+    y_jumps = piecewise_from_jumps(t, bp, vals)
+    conds = [
+        t < bp[0],
+        (t >= bp[0]) & (t < bp[1]),
+        (t >= bp[1]) & (t < bp[2]),
+        (t >= bp[2]) & (t < bp[3]),
+        t >= bp[3],
+    ]
+    y_direct = np.select(conds, vals)
+    diff = float(np.max(np.abs(y_jumps - y_direct)))
+    return _result("кусочно-постоянная через ступеньки", diff, 0.0, tol=1e-12)
+
+
 def check_delta_sifting(t0: float = 0.7, eps: float = 1e-2, n: int = 1000) -> dict:
     """Фильтрующее свойство: интеграл f(t)*delta_eps(t-t0) -> f(t0).
 
@@ -83,17 +103,20 @@ def check_delta_sifting(t0: float = 0.7, eps: float = 1e-2, n: int = 1000) -> di
     """
     h = eps / n
     t = t0 - eps / 2 + h / 2 + np.arange(n) * h
-    measured = abs(np.sum(np.cos(t)) * h / eps - np.cos(t0))
+    measured = abs(np.sum(np.cos(t) * rect_delta(t - t0, eps)) * h - np.cos(t0))
     expected = abs(np.cos(t0)) * eps**2 / 24
     return _result(
         "фильтрующее свойство дельты", measured, expected, tol=10 * eps**4
-)
+    )
+
+
 ALL_CHECKS = (
     lambda: check_convolution_support(7, 4),
     lambda: check_delta_is_identity(),
     lambda: check_parseval(np.random.default_rng(2).standard_normal(64)),
     lambda: check_dft_of_delta(),
     lambda: check_circular_equals_linear(),
+    lambda: check_piecewise_from_jumps(),
     lambda: check_delta_sifting(),
 )
 
