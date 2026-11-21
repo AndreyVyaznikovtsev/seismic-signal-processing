@@ -72,6 +72,7 @@ def test_piecewise_does_not_mutate_inputs():
     assert np.array_equal(bp, bp_c)
     assert np.array_equal(vals, vals_c)
 
+
 def test_rect_delta_inside_support():
     """Внутри носителя значение равно 1/eps."""
     out = rect_delta(np.linspace(-0.4, 0.4, 5), eps=1.0)
