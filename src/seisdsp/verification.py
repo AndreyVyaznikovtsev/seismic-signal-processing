@@ -103,8 +103,8 @@ def check_delta_sifting(t0: float = 0.7, eps: float = 1e-2, n: int = 1000) -> di
     """
     h = eps / n
     t = t0 - eps / 2 + h / 2 + np.arange(n) * h
-    measured = abs(np.sum(np.cos(t) * rect_delta(t - t0, eps)) * h - np.cos(t0))
-    expected = abs(np.cos(t0)) * eps**2 / 24
+    measured = np.sum(np.cos(t) * rect_delta(t - t0, eps)) * h - np.cos(t0)
+    expected = -np.cos(t0) * eps**2 / 24
     return _result("фильтрующее свойство дельты", measured, expected, tol=10 * eps**4)
 
 
