@@ -23,3 +23,12 @@
 - Хомячков Дмитрий - [@dimayn35](https://github.com/dimayn35)
 - Григорьева Галина - [@gggrigoreva103](https://github.com/gggrigoreva103)
 - Хилько Егор - [@hilgor2000-boop](https://github.com/hilgor2000-boop)
+
+Команда 4:
+- Канаев Илья — [@ilkanaev-glitch](https://github.com/ilkanaev-glitch)
+- Черненок Александр — [@sashache32](https://github.com/sashache32)
+- Орлов Ян — [@YanOrlov-coder](https://github.com/YanOrlov-coder)
+- Берсенев Степан — [@zxctepa399](https://github.com/zxctepa399)
+- Низовцев Михаил — [@yngmikeee](https://github.com/yngmikeee)
+- Чехлов Владимир — [@vchehlovg-coder](https://github.com/vchehlovg-coder)
+- Легошин Арсений — [@Legosin](https://github.com/Legosin)
