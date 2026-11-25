@@ -514,7 +514,7 @@ for eps in eps_grid:
     t = t0 - eps / 2 + h / 2 + np.arange(2000) * h
     err_grid.append(abs(np.sum(np.cos(t) * rect_delta(t - t0, eps)) * h - np.cos(t0)))
 
-fig, ax = plt.subplots(figsize=(6, 2.6))
+fig, ax = plt.subplots(figsize=(10, 4))
 ax.loglog(eps_grid, err_grid, "o-", lw=0.9, label="численная ошибка")
 ax.loglog(eps_grid, abs(np.cos(t0)) / 24 * eps_grid**2, "--", lw=0.9,
           label=r"$|\cos t_0|\,\varepsilon^2/24$")
@@ -522,6 +522,7 @@ ax.set_xlabel(r"$\varepsilon$, с")
 ax.set_ylabel("ошибка, отн. ед.")
 ax.grid(alpha=0.3, which="both")
 ax.legend(frameon=False)
+ax.tick_params(axis='both', which='both', labelsize=10)
 fig.tight_layout()
 plt.show()
 ```
