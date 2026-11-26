@@ -14,7 +14,7 @@ book:
     - index.qmd
     - part: "Математический язык обработки сигналов"
       chapters:
-        - chapters/01-math-language/sequences-vectors.qmd
+	- chapters/01-math-language/sequences-vectors.qmd
 	- chapters/01-math-language/sums-indices.qmd
     - part: "Сигналы и последовательности"
       chapters:
